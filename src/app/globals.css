@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --grey-color: #f8fafc;
+  --primary-color: #ff9130;
+  --orange-color: #ff913036;
+  --blue-color: #578cb3;
+  --dark-color: #212121;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--grey-color);
+  font-family: "Poppins", sans-serif;
+}
+
+/* component header */
+/* .header .navbar {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+.icon-github .icon {
+  color: var(--grey-color);
+  font-size: 28px;
+} */
+
+/* component navbar */
+.navbar-gw {
+  margin-top: 1rem;
+}
+.navbar-gw .icon{
+  color: var(--grey-color);
+  font-size: 28px;
+}
+.navbar-gw .icon:hover {
+  color: var(--primary-color);
+  transition: ease-in 0.3s;
+}
+
+.card-navbar {
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(54, 52, 52, 0.1);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+  padding: 15px 25px;
+  border-radius: 50px;
+  z-index: -1;
+}
+.card-body .nav-link{
+  color: var(--grey-color);
+  font-size: 17px
+}
+.card-body .nav-link:hover {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  transition: ease-in 0.2s;
+}
+
+/* Navbar active */
+.nav-link.active-navbar {
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: ease-in-out 0.1s;
+}
+
+/* component home */
+.home .img-home{
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 10px 5px rgba(255, 124, 2, 0.12),
+              0 0 20px 10px rgba(255, 124, 2, 0.1),
+              0 0 40px 20px rgba(255, 124, 2, 0.2);
+}
+.home .txt-halo {
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.home .txt-name{
+  margin-top: 10px;
+  font-size: 43px;
+  font-weight: 600;
+  color: var(--grey-color);
+}
+.home .txt-job{
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--grey-color);
+  margin-bottom: 10px;
+}
+.home .txt-desc{
+
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--grey-color);
+}
+
+/* component about */
+.about{
+  margin-top: 8rem;
+}
+.about .card{
+  background-color: var(--dark-color);
+  color: var(--grey-color);
+  border-radius: 30px;
+}
+.card .title{
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  display: flex
+  
+}
+.text-about p {
+  text-align: justify;
+  font-size: 17px;
+}
+
+/* component About-skils */
+.about-skils{
+  margin-bottom: 3rem;
+}
+.title-skils{
+  font-size: 25px;
+  font-weight: 500;
+  display: flex
+}
+.garis-title-skils{
+  flex-shrink: 0;
+  height: 3px;
+  margin-top: 13px;
+  width: 100px;
+  background-color: var(--primary-color);
+  margin-right: 10px;
+}
+.about-skils .row{
+  margin-top: 2rem;
+}
+.about-skils .card{
+  background-color: var(--dark-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color);
+  margin-top: 1rem;
+}
+.about-skils .card .card-body:hover{
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  transition: ease-in 0.3s;
+  cursor: pointer;
+  transform: scale(1.10);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+/* component about-skils navigasi */
+.about-navigasi{
+  margin-top: 3rem;
+}
+.about-navigasi .navabout-link{
+  color: var(--grey-color);
+  font-size: 17px;
+}
+.about-navigasi .navabout-link:hover{
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: ease-in 0.2s;
+}
+.navabout-link.active-navigasiabout{
+  color: var(--primary-color);
+  background-color: var(--orange-color);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+/* component about/tools */
+.tools {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.title-tools{
+  font-size: 25px;
+  font-weight: 500;
+  display: flex
+}
+.garis-title-tools{
+  flex-shrink: 0;
+  height: 3px;
+  margin-top: 13px;
+  width: 100px;
+  background-color: var(--primary-color);
+  margin-right: 10px;
+}
+.tools .row{
+  margin-top: 2rem;
+}
+.tools .card {
+  background-color: var(--dark-color);
+  color: var(--grey-color);
+  border: 1px solid var(--grey-color);
+  margin-top: 1rem;
+}
+
+/* component project */
+.project{
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+.project .card{
+  background-color: var(--dark-color);
+  color: var(--grey-color);
+  margin-top: 2rem;
+}
+.project .title{
+  margin-top: 2rem;
+
+}
+.project .title h2{
+  font-size: 25px;
+  font-weight: 600;
+}
+
+/* components contact */
+.contact{
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+.contact .form-contact{
+  margin-top: 2rem;
+}
+.form-contact h2{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.form-contact .form-control{
+  background-color: var(--dark-color);
+  color: var(--grey-color);
+  padding: 10px;
+}
+.form-contact .form-control::placeholder{
+  color: var(--grey-color);
+}
+.form-contact .form-control:focus{
+  box-shadow: 0 0 5px 2px rgba(255, 124, 2, 0.658);
+  border: 1px solid var(--primary-color);
+  transition: ease-in 0.2s;
+}
+.form-contact .btn{
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+  font-weight: 600;
+}
+.form-contact .btn:hover{
+  background-color: var(--background);
+  color: var(--grey-color);
+  transition: ease-in 0.2s;
+  border: 1px solid var(--primary-color);
+}
+
+/* style loading */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  --c:no-repeat radial-gradient(farthest-side,#ff9130 92%,#0000);
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 10px 10px;
+  animation: l18 1s infinite;
+  position: relative;
+}
+.loader::before {    
+  content:"";
+  position: absolute;
+  inset:0;
+  margin: 3px;
+  background: repeating-conic-gradient(#0000 0 35deg,#ff9130 0 90deg);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 3px),#000 0);
+  border-radius: 50%;
+}
+@keyframes l18 { 
+  100%{transform: rotate(.5turn)}
+}
+
+/* responsive mobile */
+@media screen and (max-width: 500px) {
+  /* navbar */
+  .navbar-gw .icon{
+    font-size: 24px;
+  }
+  .card-navbar .img-logo-navbar{
+    width: 30px;
+    height: 30px;
+  }
+  .card-body .nav-link{
+    font-size: 13px
+  }
+
+  /* Home */
+  .home .img-home{
+    margin-top: 8rem;
+    width: 250px;
+    height: 250px;
+
+  }
+  .home .home-text{
+    margin-bottom: 3rem;
+  }
+
+  /* About */
+  .text-about p {
+    font-size: 15px;
+    margin-top: 1rem;
+  }
+  .card .title{
+    font-size: 20px;
+    text-align: center;
+  }
+  .card .profile{
+    width: 250px;
+    height: 250px;
+  }
+  
+  /* project */
+  .project .title h2{
+    font-size: 20px;
+  }
+  .project .title span{
+    font-size: 13px;
+  }
+}
