@@ -5,9 +5,8 @@ import "animate.css";
 import { useLanguange } from "@/context/TranslateContext";
 import { translateText } from "@/libs/Translate";
 
-
 const About = () => {
-  const { language } = useLanguange()
+  const { language } = useLanguange();
   const [translatedText, setTranslatedText] = useState({
     paragraf1: "",
     paragraf2: "",
@@ -27,7 +26,7 @@ const About = () => {
       <a href="https://github.com/adisupiansah" class='text-blue-500' target='_blank'>my GitHub account</a> 
       or the <a href="/project" class='text-blue-500'>Project menu</a> on this website.`,
       paragraf4: "Please scroll down to see more about me",
-      paragraf5: "Greetings and Thanks You!"
+      paragraf5: "Greetings and Thanks You!",
     },
   ];
 
@@ -35,18 +34,33 @@ const About = () => {
     setLoading(true);
     if (language === "id") {
       try {
-        const translatedParagraf1 = await translateText(teksAbout[0].paragraf1, "id");
-        const translatedParagraf2 = await translateText(teksAbout[0].paragraf2, "id");
-        const translatedParagraf3 = await translateText(teksAbout[0].paragraf3, "id");
-        const translatedParagraf4 = await translateText(teksAbout[0].paragraf4, "id");
-        const translatedParagraf5 = await translateText(teksAbout[0].paragraf5, "id");
+        const translatedParagraf1 = await translateText(
+          teksAbout[0].paragraf1,
+          "id"
+        );
+        const translatedParagraf2 = await translateText(
+          teksAbout[0].paragraf2,
+          "id"
+        );
+        const translatedParagraf3 = await translateText(
+          teksAbout[0].paragraf3,
+          "id"
+        );
+        const translatedParagraf4 = await translateText(
+          teksAbout[0].paragraf4,
+          "id"
+        );
+        const translatedParagraf5 = await translateText(
+          teksAbout[0].paragraf5,
+          "id"
+        );
 
         setTranslatedText({
           paragraf1: translatedParagraf1,
           paragraf2: translatedParagraf2,
           paragraf3: translatedParagraf3,
           paragraf4: translatedParagraf4,
-          paragraf5: translatedParagraf5
+          paragraf5: translatedParagraf5,
         });
       } catch (error) {
         console.error("Translation error:", error);
@@ -69,7 +83,7 @@ const About = () => {
             <div className="card">
               <div className="card-body">
                 <h3 className="title container animate__animated animate__fadeInDown animate__fast">
-                  About Me
+                  {language === "id" ? "Tentang saya" : "About me"}
                 </h3>
                 <div className="row ">
                   <div className="col-md-6">
@@ -94,7 +108,7 @@ const About = () => {
                           <p
                             className="mt-3"
                             dangerouslySetInnerHTML={{
-                              __html: translatedText.paragraf3
+                              __html: translatedText.paragraf3,
                             }}
                           ></p>
                           <p className="mt-4">{translatedText.paragraf4}</p>

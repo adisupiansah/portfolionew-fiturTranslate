@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import 'animate.css'
+import { useLanguange } from "@/context/TranslateContext";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const Contact = () => {
     from: "",
     message: "",
   });
+
+  const { language } = useLanguange()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -59,13 +62,13 @@ const Contact = () => {
           <div className="col-md-8">
             <div className="form-contact">
               <div className="row flex justify-center items-center">
-                <h2 className="text-center animate__animated animate__slideInDown animate__fast">Contact Me</h2>
+                <h2 className="text-center animate__animated animate__slideInDown animate__fast">{language === "id" ? "Hubungi saya" : "Contact me"}</h2>
                 <div className="col-md-10 animate__animated animate__slideInLeft animate__fast">
                   <form onSubmit={handleSubmit}>
                     <div className="group">
                       <input
                         type="text"
-                        placeholder="Name"
+                        placeholder={language === "id" ? "Nama" : "Name"}
                         className="form-control"
                         name="name"
                         value={formData.name}
@@ -75,7 +78,7 @@ const Contact = () => {
                     <div className="group mt-4">
                       <input
                         type="text"
-                        placeholder="From"
+                        placeholder={language === "id" ? "Dari" : "From"}
                         className="form-control"
                         name="from"
                         value={formData.from}
@@ -86,7 +89,7 @@ const Contact = () => {
                     <div className="group mt-4">
                       <textarea
                         className="form-control"
-                        placeholder="Leave a message here"
+                        placeholder={language === "id" ? "Tinggalkan pesan disini" : "Leave a message here"}
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
@@ -95,7 +98,7 @@ const Contact = () => {
                     </div>
                     <div className="group flex justify-center items-center mt-4">
                       <button type="submit" className="btn col-md-4">
-                        submit
+                        {language === "id" ? "Kirim" : "Submit"}
                       </button>
                     </div>
                   </form>

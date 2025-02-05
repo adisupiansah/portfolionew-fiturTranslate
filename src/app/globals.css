@@ -71,6 +71,14 @@ body {
   transition: ease-in-out 0.1s;
 }
 
+/* navbar dropdown translate */
+.btn-translate:hover{
+  color: var(--primary-color);
+  background-color: var(--orange-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 /* component home */
 .home .img-home{
   border: 3px solid var(--primary-color);

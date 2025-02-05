@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SiGoogletranslate } from "react-icons/si";
+import { MdGTranslate } from "react-icons/md";
 import Image from "next/image";
 import logoAdi from "/public/img/logo.jpeg";
 import { useLanguange } from "@/context/TranslateContext";
@@ -11,6 +11,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const [showDropdown, setShowDropdown] = useState(false);
   const { setLanguage } = useLanguange();
+  const { language } = useLanguange();
 
   const Active = (url) => {
     if (url === "/about") {
@@ -36,47 +37,47 @@ const Navbar = () => {
                   />
 
                   <Link className={`nav-link ${Active("/")}`} href="/">
-                    Home
+                    {language === "id" ? "Beranda" : "Home"}
                   </Link>
                   <Link
                     className={`nav-link ${Active("/about")}`}
                     href="/about"
                   >
-                    About
+                    {language === "id" ? "Tentang" : "About"}
                   </Link>
                   <Link
                     className={`nav-link ${Active("/project")}`}
                     href="/project"
                   >
-                    Project
+                    {language === "id" ? "Proyek" : "Project"}
                   </Link>
                   <Link
                     className={`nav-link ${Active("/contact")}`}
                     href="/contact"
                   >
-                    Contact
+                    {language === "id" ? "Kontak" : "Contact"}
                   </Link>
                   <div className="relative">
                     <button
-                      className="btn"
+                      className=""
                       onClick={() => setShowDropdown(!showDropdown)}
                     >
-                      <SiGoogletranslate className="icon" />
+                      <MdGTranslate className="icon" />
                     </button>
 
                     {showDropdown && (
-                      <div className="absolute top-10 right-0 bg-black shadow-md p-2 rounded">
+                      <div className="absolute top-10 right-0 bg-black shadow-md p-2 rounded animate__animated animate__fadeIn animate__faster">
                         <button
-                          className="block w-full text-left p-2 hover:bg-gray-200"
+                          className="block w-full text-left p-2 btn-translate"
                           onClick={() => {
                             setLanguage("id");
                             setShowDropdown(false);
                           }}
                         >
-                          Bahasa Indonesia
+                          Indonesia
                         </button>
                         <button
-                          className="block w-full text-left p-2 hover:bg-gray-200"
+                          className="block w-full text-left p-2 btn-translate"
                           onClick={() => {
                             setLanguage("en");
                             setShowDropdown(false);

@@ -21,11 +21,11 @@ const Home = () => {
 const teksHome = [
   {
     id:1,
-    paragraf1: "Hallo Guys, I a'm",
+    paragraf1: "Hello everyone, I a'm",
     paragraf2: "Adi Supiansah",
     paragraf31: "Fullstack",
     paragraf32: "Fullstack Developer",
-    paragraf4: "Welcome to My Personal website"
+    paragraf4: "Welcome to my personal website"
   }
 ]
 
@@ -84,9 +84,9 @@ const teksHome = [
               <h2 className="txt-job">
                 <TypeAnimation
                   sequence={[
-                    translated.paragraf31,
+                    translated.paragraf31 || teksHome[0].paragraf31, 
                     500,
-                    translated.paragraf32,
+                    translated.paragraf32 || teksHome[0].paragraf32,
                     500,
                     '',
                     500,

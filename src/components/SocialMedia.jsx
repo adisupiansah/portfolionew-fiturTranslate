@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLanguange } from "@/context/TranslateContext";
 
 const SocialMedia = () => {
+  const { language } = useLanguange()
   const sosmed = [
     {
       id: 1,
@@ -40,7 +42,7 @@ const SocialMedia = () => {
         <div className="row d-flex justify-content-center align-items-center">
           <h3 className="col-md-12">
             <div className="title-tools">
-              <span className="garis-title-tools"></span>Social Media
+              <span className="garis-title-tools"></span>{language === "id" ? "Media Sosial" : "Social Media"}
             </div>
             <div className="row ">
               {sosmed.map((data, index) => (
@@ -59,15 +61,15 @@ const SocialMedia = () => {
                       <div className="col-md-9">
                         <div className="card-body">
                           <h5 className="card-title">
-                            Social Media: {data.sosialmedia}
+                            {language === "id" ? "Media sosial" : "Social media"}: {data.sosialmedia}
                           </h5>
-                          <p className="card-text my-2">name: {data.nama}</p>
+                          <p className="card-text my-2">{language === "id" ? "Nama" : "Name"}: {data.nama}</p>
                           <Link
                             href={data.url}
                             target="_blank"
                             className="card-text text-blue-500"
                           >
-                            Visit My {data.sosialmedia}
+                            {language === "id" ? "Kunjungi saya" : "Visit my"} {data.sosialmedia}
                           </Link>
                         </div>
                       </div>

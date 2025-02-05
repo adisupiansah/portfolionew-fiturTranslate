@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import sibalog from "/public/img/sibalog.png";
 import disposisi from "/public/img/disposisibaglog.png";
@@ -13,9 +13,15 @@ import wallpaperhd from "/public/img/wallpaperhd.png";
 import ChartGW from "./Chart";
 import Link from "next/link";
 import { LuExternalLink } from "react-icons/lu";
-import 'animate.css'
+import "animate.css";
+import { useLanguange } from "@/context/TranslateContext";
+import { translateText } from "@/libs/Translate";
 
 const Project = () => {
+  const { language } = useLanguange();
+  const [showText, setShowText] = useState({});
+  const [translated, setTransLated] = useState([]);
+
   const dataProject = [
     {
       id: 1,
@@ -91,14 +97,41 @@ const Project = () => {
     {
       id: 9,
       nama: "WALLPAPER HD",
-      deskripsi: "This application was developed based on requests from clients as part of the Final Semester Examination (UAS) assignment for creating web-based applications. The data used in this application was obtained via the web scraping method, where the data was taken from the Wallpaperflare.com platform.",
+      deskripsi:
+        "This application was developed based on requests from clients as part of the Final Semester Examination (UAS) assignment for creating web-based applications. The data used in this application was obtained via the web scraping method, where the data was taken from the Wallpaperflare.com platform.",
       commit: "2 February 2025",
       link: "https://wallpaperhd.vercel.app",
-      img: wallpaperhd
-    }
+      img: wallpaperhd,
+    },
   ];
 
-  const [showText, setShowText] = useState({});
+  const translatedAllText = async (data, setData) => {
+    if (language === "id") {
+      try {
+        const translatedData = await Promise.all(
+          data.map(async (item) => ({
+            ...item,
+            nama: await translateText(item.nama, "id"),
+            deskripsi: await translateText(item.deskripsi, "id"),
+            commit: await translateText(item.commit, "id"),
+          }))
+        );
+        setData(translatedData);
+      } catch (error) {
+        console.error("Error translate Project: ", error);
+        setData(data);
+      }
+    } else {
+      setData(data);
+    }
+  };
+
+  useEffect(() => {
+    const translateAll = async () => {
+      translatedAllText(dataProject, setTransLated);
+    };
+    translateAll();
+  }, [language]);
 
   const toggleReadMore = (id) => {
     setShowText((prev) => {
@@ -117,15 +150,15 @@ const Project = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="title text-center animate__animated animate__fadeInDown animate__fast">
-                  <h2>Past Project Experience</h2>
-                  <span>Explore the projects Ive worked on so far</span>
+                  <h2>{language === "id" ? "Pengalaman proyek sebelumnya" : "Past project experience"}</h2>
+                  <span>{language === "id" ? "Jelajahi proyek yang telah saya kerjakan sejauh ini" : "Explore the projects I've worked on so far"}</span>
                 </div>
                 <div className="card p-2 animate__animated animate__fadeInLeft animate__fast">
                   <ChartGW dataProject={dataProject} />
                 </div>
               </div>
-              {dataProject.map((data, index) => (
-                <div className="col-md-6" key={index}>
+              {translated.map((data) => (
+                <div className="col-md-6" key={data.id}>
                   <div className="card animate__animated animate__zoomIn animate__fast">
                     <div className="card-body">
                       <Image
@@ -133,7 +166,9 @@ const Project = () => {
                         alt="webportfolio"
                         className="card-img-top"
                       />
-                      <h3 className="title-project mt-3 text-center fw-bold mb-3">{data.nama}</h3>
+                      <h3 className="title-project mt-3 text-center fw-bold mb-3">
+                        {data.nama}
+                      </h3>
                       <p>
                         {showText[data.id]
                           ? data.deskripsi
@@ -147,8 +182,13 @@ const Project = () => {
                         </span>
                       </p>
                       <p>{data.commit}</p>
-                      <Link href={data.link} target="_blank" className="flex text-blue-500">
-                        view project <LuExternalLink className="icon mt-1 mx-1" />
+                      <Link
+                        href={data.link}
+                        target="_blank"
+                        className="flex text-blue-500"
+                      >
+                        view project{" "}
+                        <LuExternalLink className="icon mt-1 mx-1" />
                       </Link>
                     </div>
                   </div>

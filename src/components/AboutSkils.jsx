@@ -2,8 +2,10 @@ import React from "react";
 import Image from "next/image";
 import prismaImg from '/public/img/prisma.png'
 import msoffice from '/public/img/msoffice.png'
+import { useLanguange } from "@/context/TranslateContext";
 
 const AboutSkils = () => {
+  const {language} = useLanguange()
   const LogoSkilCard = [
     {
       id: 1,
@@ -89,7 +91,7 @@ const AboutSkils = () => {
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-md-12">
             <h3 className="title-skils">
-              <span className="garis-title-skils"></span>Skils
+              <span className="garis-title-skils"></span>{language === "id" ? "Keahlian" : "Skill"}
             </h3>
             <div className="row">
             {LogoSkilCard.map((item, index) => (
