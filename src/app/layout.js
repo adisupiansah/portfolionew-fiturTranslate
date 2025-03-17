@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "portfolio",
-  description: "Adi supiansah",
+  title: "Adi supiansah - Portfolio",
+  description: "Selamat datang di portofolio Adi Supiansah! Temukan proyek-proyek inovatif, pengalaman profesional, dan keahlian dalam pengembangan web serta teknologi digital.",
 };
 
 export default function RootLayout({ children }) {
