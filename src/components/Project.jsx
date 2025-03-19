@@ -10,6 +10,7 @@ import frontendRatingfilm from "/public/img/webrating-film.png";
 import webportfolio from "/public/img/webportfolio.png";
 import quransaya from "/public/img/quransaya.png";
 import wallpaperhd from "/public/img/wallpaperhd.png";
+import saloka from '/public/img/saloka.png'
 import ChartGW from "./Chart";
 import Link from "next/link";
 import { LuExternalLink } from "react-icons/lu";
@@ -27,16 +28,16 @@ const Project = () => {
       id: 1,
       nama: "SIBALOG",
       deskripsi:
-        "SIBALOG is an information system designed to manage logistics data efficiently in the Karimun Police logistics section.",
+        "SIBALOG is an information system designed to monitor logistics data efficiently in the Karimun Police logistics section and facilitate the retrieval of letter numbers.",
       commit: "5 December 2024",
-      link: "https://sibalog.my.id",
+      link: "https://sibalog.vercel.app",
       img: sibalog,
     },
     {
       id: 2,
       nama: "DISPOSISI BAGLOG",
       deskripsi:
-        "This application is an initial version before the presence of the SIBALOG application.",
+        "This application is an initial version before the presence of the SALOKA application.",
       commit: "13 June 2023",
       link: "https://disposisibaglog.kesug.com/login.php",
       img: disposisi,
@@ -45,7 +46,7 @@ const Project = () => {
       id: 3,
       nama: "NOTADINAS BAGLOG",
       deskripsi:
-        "This application is an initial version before the presence of the SIBALOG application.",
+        "This application is an initial version before the presence of the SALOKA application.",
       commit: "13 June 2023",
       link: "https://notadinaskeluarbaglog.great-site.net/",
       img: notadinas,
@@ -103,32 +104,46 @@ const Project = () => {
       link: "https://wallpaperhd.vercel.app",
       img: wallpaperhd,
     },
+    {
+      id: 10,
+      nama: "SALOKA",
+      deskripsi:
+        "SALOKA is an administration system designed to manage logistics data efficiently in the Karimun Police logistics section.",
+      commit: "5 March 2025",
+      link: "https://saloka.vercel.app",
+      img: saloka,
+    },
   ];
 
-  const translatedAllText = async (data, setData) => {
-    if (language === "id") {
-      try {
-        const translatedData = await Promise.all(
-          data.map(async (item) => ({
-            ...item,
-            nama: await translateText(item.nama, "id"),
-            deskripsi: await translateText(item.deskripsi, "id"),
-            commit: await translateText(item.commit, "id"),
-          }))
-        );
-        setData(translatedData);
-      } catch (error) {
-        console.error("Error translate Project: ", error);
-        setData(data);
-      }
-    } else {
-      setData(data);
-    }
+  const translatedAllText = async (data, setData, page) => {
+    try {
+         const translatedData = await Promise.all(
+           data.map(async (item) => ({
+             ...item,
+             nama:
+               language === "id"
+                 ? await translateText("nama", "id", `${page}.${item.id}`)
+                 : item.nama,
+             deskripsi:
+               language === "id"
+                 ? await translateText("deskripsi", "id", `${page}.${item.id}`)
+                 : item.deskripsi,
+             commit:
+               language === "id"
+                 ? await translateText("commit", "id", `${page}.${item.id}`)
+                 : item.commit,
+           }))
+         );
+         setData(translatedData);
+       } catch (error) {
+         console.error("Translation component experience error:", error);
+         setData(data); // Fallback ke data original
+       }
   };
 
   useEffect(() => {
     const translateAll = async () => {
-      translatedAllText(dataProject, setTransLated);
+      translatedAllText(dataProject, setTransLated, "project");
     };
     translateAll();
   }, [language]);

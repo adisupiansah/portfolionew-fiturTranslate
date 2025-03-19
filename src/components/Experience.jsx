@@ -22,7 +22,7 @@ const Experience = () => {
     {
       id: 1,
       nama: "Admin Logistik",
-      deskripsi: "Karimun Police Logistics Section office administration",
+      deskripsi: "Karimun Police Logistics Admin",
       tahun: "14 January 2021 - 13 January 2025",
       img: gambarExperience,
     },
@@ -37,7 +37,7 @@ const Experience = () => {
     {
       id: 3,
       nama: "Anggota KPPS 2",
-      deskripsi: "KPPS Election 2024",
+      deskripsi: "2024 regional head elections",
       tahun: "27 November 2024",
       img: kpps,
     },
@@ -70,22 +70,22 @@ const Experience = () => {
     },
   ];
 
-  const translateExperience = async (data, setState) => {
+  const translateExperience = async (data, setState, page) => {
     try {
       const translatedData = await Promise.all(
         data.map(async (item) => ({
           ...item,
           nama:
             language === "id"
-              ? await translateText(item.nama, "id")
+              ? await translateText("nama", "id", `${page}.${item.id}`)
               : item.nama,
           deskripsi:
             language === "id"
-              ? await translateText(item.deskripsi, "id")
+              ? await translateText("deskripsi", "id", `${page}.${item.id}`)
               : item.deskripsi,
           tahun:
             language === "id"
-              ? await translateText(item.tahun, "id")
+              ? await translateText("tahun", "id", `${page}.${item.id}`)
               : item.tahun,
         }))
       );
@@ -100,13 +100,13 @@ const Experience = () => {
     const translateAll = async () => {
       setLoading(true);
       await Promise.all([
-        translateExperience(pengalamanKerja, setTranslatedWork),
-        translateExperience(pengalamanOrganisasi, setTranslatedOrg),
-        translateExperience(pengalamanBootcamp, setTranslatedBootcamp),
+        translateExperience(pengalamanKerja, setTranslatedWork, "experience.pengalamanKerja"),
+        translateExperience(pengalamanOrganisasi, setTranslatedOrg, "experience.pengalamanOrganisasi"),
+        translateExperience(pengalamanBootcamp, setTranslatedBootcamp, "experience.pengalamanBootcamp"),
       ]);
       setLoading(false);
     };
-
+  
     translateAll();
   }, [language]);
 

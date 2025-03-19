@@ -29,32 +29,19 @@ const teksHome = [
   }
 ]
 
-  const translatedAllText = async () => {
-    if (language === "id") {
-      try {
-        const translations = await Promise.all([
-          translateText(teksHome[0].paragraf1, "id"),
-          translateText(teksHome[0].paragraf2, "id"),
-          translateText(teksHome[0].paragraf31, "id"),
-          translateText(teksHome[0].paragraf32, "id"),
-          translateText(teksHome[0].paragraf4, "id")
-        ]);
-
-        setTranslated({
-          paragraf1: translations[0],
-          paragraf2: translations[1],
-          paragraf31: translations[2],
-          paragraf32: translations[3],
-          paragraf4: translations[4]
-        });
-      } catch (error) {
-        console.error("Error Translating Text Home:", error);
-        setTranslated(teksHome[0]);
-      }
-    } else {
-      setTranslated(teksHome[0])
-    }
+const translatedAllText = () => {
+  if (language === "id") {
+    setTranslated({
+      paragraf1: translateText('paragraf1', 'id', 'home'),
+      paragraf2: translateText('paragraf2', 'id', 'home'),
+      paragraf31: translateText('paragraf31', 'id', 'home'),
+      paragraf32: translateText('paragraf32', 'id', 'home'),
+      paragraf4: translateText('paragraf4', 'id', 'home')
+    });
+  } else {
+    setTranslated(teksHome[0]);
   }
+};
 
   useEffect(() => {
     translatedAllText()

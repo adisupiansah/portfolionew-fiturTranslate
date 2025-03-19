@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <LanguangeProvider>
-        <body className={poppins.className}>
+        <body cz-shortcut-listen="true" className={poppins.className}>
           <Navbar />
           {children}
         </body>
