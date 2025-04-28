@@ -62,7 +62,8 @@ const Contact = () => {
           <div className="col-md-8">
             <div className="form-contact">
               <div className="row flex justify-center items-center">
-                <h2 className="text-center animate__animated animate__slideInDown animate__fast">{language === "id" ? "Hubungi saya" : "Contact me"}</h2>
+                <h2 className="text-center animate__animated animate__slideInDown animate__fast">{language === "id" ? "Hubungi Saya di WhatsApp" : "Contact Me on WhatsApp"}</h2>
+                
                 <div className="col-md-10 animate__animated animate__slideInLeft animate__fast">
                   <form onSubmit={handleSubmit}>
                     <div className="group">

@@ -11,6 +11,8 @@ import webportfolio from "/public/img/webportfolio.png";
 import quransaya from "/public/img/quransaya.png";
 import wallpaperhd from "/public/img/wallpaperhd.png";
 import saloka from '/public/img/saloka.png'
+import registrasiIndihome from '/public/img/registrasi-indihome.png';
+import adminRegistrasiIndihome from '/public/img/adminregistrasi-indihome.png';
 import ChartGW from "./Chart";
 import Link from "next/link";
 import { LuExternalLink } from "react-icons/lu";
@@ -112,6 +114,22 @@ const Project = () => {
       commit: "5 March 2025",
       link: "https://saloka.vercel.app",
       img: saloka,
+    },
+    {
+      id: 11,
+      nama: 'REGISTRASI INDIHOME',
+      deskripsi: 'The IndiHome registration website was created based on direct orders from the IndiHome sales team in the Riau Islands Province, Karimun Regency, as part of the final project material for a thesis compiled by one of the sales.',
+      commit: '25 April 2025',
+      link: 'https://registrasi-indihome.vercel.app/',
+      img: registrasiIndihome,
+    },
+    {
+      id: 12,
+      nama: 'ADMIN REGISTRASI INDIHOME',
+      deskripsi: 'This IndiHome registration admin website is designed to manage data of prospective customers who wish to subscribe to IndiHome services. This website is directly integrated with the IndiHome registration website system, so that both function as one unit in the customer management and registration process.',
+      commit: '25 April 2025',
+      link: 'https://adminregistrasi-indihome.vercel.app/',
+      img: adminRegistrasiIndihome,
     },
   ];
 

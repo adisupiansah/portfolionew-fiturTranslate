@@ -117,6 +117,16 @@ const translations = {
           "SALOKA is an administration system designed to manage logistics data efficiently in the Karimun Police logistics section.",
         commit: "5 March 2025",
       },
+      11: {
+        nama: 'INDIHOME REGISTRATION',
+        deskripsi: 'The IndiHome registration website was created based on direct orders from the IndiHome sales team in the Riau Islands Province, Karimun Regency, as part of the final project material for a thesis compiled by one of the sales.',
+        commit: '25 April 2025',
+      },
+      12: {
+        nama: 'INDIHOME REGISTRATION ADMIN',
+        deskripsi: 'This IndiHome registration admin website is designed to manage data of prospective customers who wish to subscribe to IndiHome services. This website is directly integrated with the IndiHome registration website system, so that both function as one unit in the customer management and registration process.',
+        commit: '25 April 2025',
+      }
 
     }
   },
@@ -227,6 +237,16 @@ atau <a href="/project" class='text-blue-500'>menu Proyek</a> di situs web ini.`
         nama: 'SALOKA',
         deskripsi: 'SALOKA merupakan sistem administrasi yang dirancang untuk mengelola data logistik secara efisien di bagian logistik Polres Karimun.',
         commit: '5 Maret 2025',
+      },
+      11: {
+        nama: 'PENDAFTARAN INDIHOME',
+        deskripsi: 'Website pendaftaran IndiHome dibuat berdasarkan pesanan langsung dari tim sales IndiHome di Provinsi Kepulauan Riau, Kabupaten Karimun, sebagai bagian dari tugas akhir yang disusun oleh salah satu sales.',
+        commit: '25 April 2025',
+      },
+      12: {
+        nama: 'ADMIN PENDAFTARAN INDIHOME',
+        deskripsi: 'Website admin pendaftaran IndiHome ini dirancang untuk mengelola data calon pelanggan yang ingin berlangganan layanan IndiHome. Website ini terintegrasi langsung dengan sistem website pendaftaran IndiHome, sehingga keduanya berfungsi sebagai satu kesatuan dalam proses pengelolaan dan pendaftaran pelanggan.',
+        commit: '25 April 2025',
       },
     }
   },
