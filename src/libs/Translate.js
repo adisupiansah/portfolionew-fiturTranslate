@@ -46,7 +46,7 @@ const translations = {
         2: {
           nama: "Mapala Gunung Jantan, Karimun University",
           deskripsi: "Public Relations of MGJ Karimun University",
-          tahun: "2021 - 2022",
+          tahun: "2022 - 2023",
         }
       },
       pengalamanBootcamp: {
@@ -176,7 +176,7 @@ atau <a href="/project" class='text-blue-500'>menu Proyek</a> di situs web ini.`
         2: {
           nama: 'Mapala Gunung Jantan, Universitas Karimun',
           deskripsi: 'Humas MGJ Universitas Karimun',
-          tahun: '2021 - 2022',
+          tahun: '2022 - 2023',
         }
       },
       pengalamanBootcamp: {

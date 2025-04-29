@@ -55,7 +55,7 @@ const Experience = () => {
       id: 2,
       nama: "Mapala Gunung Jantan, Karimun University",
       deskripsi: "Public Relations of MGJ Karimun University",
-      tahun: "2021 - 2022",
+      tahun: "2022 - 2023",
       img: mapala,
     },
   ];
