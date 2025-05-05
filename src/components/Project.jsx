@@ -13,6 +13,7 @@ import wallpaperhd from "/public/img/wallpaperhd.png";
 import saloka from '/public/img/saloka.png'
 import registrasiIndihome from '/public/img/registrasi-indihome.png';
 import adminRegistrasiIndihome from '/public/img/adminregistrasi-indihome.png';
+import CustomerComment from '/public/img/customer_comment.png';
 import ChartGW from "./Chart";
 import Link from "next/link";
 import { LuExternalLink } from "react-icons/lu";
@@ -131,6 +132,14 @@ const Project = () => {
       link: 'https://adminregistrasi-indihome.vercel.app/',
       img: adminRegistrasiIndihome,
     },
+    {
+      id: 13,
+      nama: 'CUSTOMER COMMENT',
+      deskripsi: 'This website is an assessment of customers, colleagues who have worked with me.',
+      commit: '5 May 2025',
+      link: 'https://komentar-portfolio.vercel.app',
+      img: CustomerComment
+    }
   ];
 
   const translatedAllText = async (data, setData, page) => {

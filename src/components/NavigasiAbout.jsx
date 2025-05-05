@@ -4,15 +4,16 @@ import AboutSkils from "./AboutSkils";
 import Experience from "./Experience";
 import SocialMedia from "./SocialMedia";
 import { useLanguange } from "@/context/TranslateContext";
+import Sertifikat from "./Sertifikat";
 
 const NavigasiAbout = () => {
-  const [activeTab, setActiveTab] = useState("techStack");
+  const [activeTab, setActiveTab] = useState("sertifikat"); 
   const { language } = useLanguange();
 
   // Objek terjemahan
   const tabLabels = {
     techStack: {
-      en: "Tech Stack",
+      en: "Skill",
       id: "Teknologi"
     },
     experience: {
@@ -22,6 +23,10 @@ const NavigasiAbout = () => {
     socialMedia: {
       en: "Social Media", 
       id: "Media Sosial"
+    }, 
+    sertifikat: {
+      en: "Certificate",
+      id: "Sertifikat"
     }
   };
 
@@ -30,11 +35,21 @@ const NavigasiAbout = () => {
       <div className="container">
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-md-8">
-            <div className="navigasi col-md-6">
-              <div className="navigasi-item d-flex justify-content-center align-items-center">
+            <div className="navigasi col-md-8">
+              <div className="navigasi-item d-flex justify-content-between align-items-center">
+                {/* Tab Sertifikat */}
+                <button
+                  className={`navabout-link ${
+                    activeTab === "sertifikat" ? "active-navigasiabout" : ""
+                  }`}
+                  onClick={() => setActiveTab("sertifikat")}
+                >
+                  {language === "id" ? tabLabels.sertifikat.id : tabLabels.sertifikat.en}
+                </button>
+
                 {/* Tab Tech Stack */}
                 <button
-                  className={`navabout-link mx-auto ${
+                  className={`navabout-link ${
                     activeTab === "techStack" ? "active-navigasiabout" : ""
                   }`}
                   onClick={() => setActiveTab("techStack")}
@@ -44,7 +59,7 @@ const NavigasiAbout = () => {
 
                 {/* Tab Experience */}
                 <button
-                  className={`navabout-link mx-auto ${
+                  className={`navabout-link ${
                     activeTab === "experience" ? "active-navigasiabout" : ""
                   }`}
                   onClick={() => setActiveTab("experience")}
@@ -54,7 +69,7 @@ const NavigasiAbout = () => {
 
                 {/* Tab Social Media */}
                 <button
-                  className={`navabout-link mx-auto ${
+                  className={`navabout-link ${
                     activeTab === "socialMedia" ? "active-navigasiabout" : ""
                   }`}
                   onClick={() => setActiveTab("socialMedia")}
@@ -66,6 +81,7 @@ const NavigasiAbout = () => {
 
             {/* Konten tetap sama */}
             <div className="content">
+              {activeTab === "sertifikat" && <Sertifikat/>}
               {activeTab === "techStack" && <AboutSkils />}
               {activeTab === "experience" && <Experience />}
               {activeTab === "socialMedia" && <SocialMedia />}

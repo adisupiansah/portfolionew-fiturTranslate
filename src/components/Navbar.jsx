@@ -6,6 +6,11 @@ import { MdGTranslate } from "react-icons/md";
 import Image from "next/image";
 import logoAdi from "/public/img/logo.jpeg";
 import { useLanguange } from "@/context/TranslateContext";
+import { IoHome } from "react-icons/io5";
+import { PiUserListFill } from "react-icons/pi";
+import { GoProjectSymlink } from "react-icons/go";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { FaCommentDots } from "react-icons/fa";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -35,28 +40,53 @@ const Navbar = () => {
                     className="rounded-circle img-logo-navbar"
                     alt="adi supiansah"
                   />
-
                   <Link className={`nav-link ${Active("/")}`} href="/">
-                    {language === "id" ? "Beranda" : "Home"}
+                    <IoHome className="block sm:hidden text-[23px]" />
+                    <span className="hidden sm:block">
+                      {language === "id" ? "Beranda" : "Home"}
+                    </span>
                   </Link>
+
                   <Link
                     className={`nav-link ${Active("/about")}`}
                     href="/about"
                   >
-                    {language === "id" ? "Tentang" : "About"}
+                    <PiUserListFill className="block sm:hidden text-[23px]" />
+                    <span className="hidden sm:block">
+                      {language === "id" ? "Tentang" : "About"}
+                    </span>
                   </Link>
+
                   <Link
                     className={`nav-link ${Active("/project")}`}
                     href="/project"
                   >
-                    {language === "id" ? "Proyek" : "Project"}
+                    <GoProjectSymlink className="block sm:hidden text-[23px]" />
+                    <span className="hidden sm:block">
+                      {language === "id" ? "Proyek" : "Project"}
+                    </span>
                   </Link>
+
                   <Link
                     className={`nav-link ${Active("/contact")}`}
                     href="/contact"
                   >
-                    {language === "id" ? "Kontak" : "Contact"}
+                    <IoLogoWhatsapp className="block sm:hidden text-[23px]" />
+                    <span className="hidden sm:block">
+                      {language === "id" ? "Kontak" : "Contact"}
+                    </span>
                   </Link>
+
+                  <Link
+                    className={`nav-link ${Active("/comment")}`}
+                    href="/comment"
+                  >
+                    <FaCommentDots className="block sm:hidden text-[23px]" />
+                    <span className="hidden sm:block">
+                      {language === "id" ? "Komentar" : "Comment"}
+                    </span>
+                  </Link>
+
                   <div className="relative">
                     <button
                       className=""

@@ -41,7 +41,7 @@ body {
 }
 .navbar-gw .icon:hover {
   color: var(--primary-color);
-  transition: ease-in 0.3s;
+  transition: ease-in 0.2s;
 }
 
 .card-navbar {
@@ -345,4 +345,25 @@ body {
   .project .title span{
     font-size: 13px;
   }
+
+  /* menu navigasi about */
+  .about-navigasi .navabout-link{
+    font-size: 15px;
+  }
+
+  .title-tools{
+    font-size: 15px;
+  }
+  .title-skils{
+    font-size: 15px;
+  }
+  .garis-title-skils{
+    width: 50px;
+    margin-top: 6px;
+  }
+  .garis-title-tools{
+    width: 50px;
+    margin-top: 6px;
+  }
+
 }
