@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://adisupiansah.my.id
+
+# Sitemaps
+Sitemap: https://adisupiansah.my.id/sitemap.xml
