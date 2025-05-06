@@ -7,6 +7,7 @@ import sertifikat4 from "/public/certificate/sertifikat_bootstrap.jpg";
 import sertifikat5 from "/public/certificate/sertifikat_php.jpg";
 import sertifikat6 from "/public/certificate/sertifikat_uiux_duniacoding.jpg";
 import sertifikat7 from "/public/certificate/sertifikat_covid19.jpg";
+import sertifikat8 from "/public/certificate/sertifikat_frontend_axios.jpg";
 import Image from "next/image";
 import { IoMdDownload } from "react-icons/io";
 import { LuSquareArrowOutUpRight } from "react-icons/lu";
@@ -61,6 +62,12 @@ const Sertifikat = () => {
       titleId: "Sertifikat Vaksinasi Covid-19 Dosis 1",
       titleEn: "Covid-19 Vaccination Certificate Dose 1",
     },
+    {
+      id: 8,
+      src: sertifikat8,
+      titleId: "Sertifikat membangun Frontend dengan axios dari Dicoding Indonesia",
+      titleEn: "Frontend Development Certificate with Axios from Dicoding Indonesia",
+    }
   ];
 
   return (
