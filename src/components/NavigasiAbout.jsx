@@ -14,7 +14,7 @@ const NavigasiAbout = () => {
   const tabLabels = {
     techStack: {
       en: "Skill",
-      id: "Teknologi"
+      id: "Keahlian"
     },
     experience: {
       en: "Experience",

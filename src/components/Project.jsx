@@ -10,10 +10,10 @@ import frontendRatingfilm from "/public/img/webrating-film.png";
 import webportfolio from "/public/img/webportfolio.png";
 import quransaya from "/public/img/quransaya.png";
 import wallpaperhd from "/public/img/wallpaperhd.png";
-import saloka from '/public/img/saloka.png'
-import registrasiIndihome from '/public/img/registrasi-indihome.png';
-import adminRegistrasiIndihome from '/public/img/adminregistrasi-indihome.png';
-import CustomerComment from '/public/img/customer_comment.png';
+import saloka from "/public/img/saloka.png";
+import registrasiIndihome from "/public/img/registrasi-indihome.png";
+import adminRegistrasiIndihome from "/public/img/adminregistrasi-indihome.png";
+import CustomerComment from "/public/img/customer_comment.png";
 import ChartGW from "./Chart";
 import Link from "next/link";
 import { LuExternalLink } from "react-icons/lu";
@@ -118,54 +118,57 @@ const Project = () => {
     },
     {
       id: 11,
-      nama: 'REGISTRASI INDIHOME',
-      deskripsi: 'The IndiHome registration website was created based on direct orders from the IndiHome sales team in the Riau Islands Province, Karimun Regency, as part of the final project material for a thesis compiled by one of the sales.',
-      commit: '25 April 2025',
-      link: 'https://registrasi-indihome.vercel.app/',
+      nama: "REGISTRASI INDIHOME",
+      deskripsi:
+        "The IndiHome registration website was created based on direct orders from the IndiHome sales team in the Riau Islands Province, Karimun Regency, as part of the final project material for a thesis compiled by one of the sales.",
+      commit: "25 April 2025",
+      link: "https://registrasi-indihome.vercel.app/",
       img: registrasiIndihome,
     },
     {
       id: 12,
-      nama: 'ADMIN REGISTRASI INDIHOME',
-      deskripsi: 'This IndiHome registration admin website is designed to manage data of prospective customers who wish to subscribe to IndiHome services. This website is directly integrated with the IndiHome registration website system, so that both function as one unit in the customer management and registration process.',
-      commit: '25 April 2025',
-      link: 'https://adminregistrasi-indihome.vercel.app/',
+      nama: "ADMIN REGISTRASI INDIHOME",
+      deskripsi:
+        "This IndiHome registration admin website is designed to manage data of prospective customers who wish to subscribe to IndiHome services. This website is directly integrated with the IndiHome registration website system, so that both function as one unit in the customer management and registration process.",
+      commit: "25 April 2025",
+      link: "https://adminregistrasi-indihome.vercel.app/",
       img: adminRegistrasiIndihome,
     },
     {
       id: 13,
-      nama: 'CUSTOMER COMMENT',
-      deskripsi: 'This website is an assessment of customers, colleagues who have worked with me.',
-      commit: '5 May 2025',
-      link: 'https://komentar-portfolio.vercel.app',
-      img: CustomerComment
-    }
+      nama: "CUSTOMER COMMENT",
+      deskripsi:
+        "This website is an assessment of customers, colleagues who have worked with me.",
+      commit: "5 May 2025",
+      link: "https://komentar-portfolio.vercel.app",
+      img: CustomerComment,
+    },
   ];
 
   const translatedAllText = async (data, setData, page) => {
     try {
-         const translatedData = await Promise.all(
-           data.map(async (item) => ({
-             ...item,
-             nama:
-               language === "id"
-                 ? await translateText("nama", "id", `${page}.${item.id}`)
-                 : item.nama,
-             deskripsi:
-               language === "id"
-                 ? await translateText("deskripsi", "id", `${page}.${item.id}`)
-                 : item.deskripsi,
-             commit:
-               language === "id"
-                 ? await translateText("commit", "id", `${page}.${item.id}`)
-                 : item.commit,
-           }))
-         );
-         setData(translatedData);
-       } catch (error) {
-         console.error("Translation component experience error:", error);
-         setData(data); // Fallback ke data original
-       }
+      const translatedData = await Promise.all(
+        data.map(async (item) => ({
+          ...item,
+          nama:
+            language === "id"
+              ? await translateText("nama", "id", `${page}.${item.id}`)
+              : item.nama,
+          deskripsi:
+            language === "id"
+              ? await translateText("deskripsi", "id", `${page}.${item.id}`)
+              : item.deskripsi,
+          commit:
+            language === "id"
+              ? await translateText("commit", "id", `${page}.${item.id}`)
+              : item.commit,
+        }))
+      );
+      setData(translatedData);
+    } catch (error) {
+      console.error("Translation component experience error:", error);
+      setData(data); // Fallback ke data original
+    }
   };
 
   useEffect(() => {
@@ -192,8 +195,16 @@ const Project = () => {
             <div className="row">
               <div className="col-md-12">
                 <div className="title text-center animate__animated animate__fadeInDown animate__fast">
-                  <h2>{language === "id" ? "Pengalaman proyek sebelumnya" : "Past project experience"}</h2>
-                  <span>{language === "id" ? "Jelajahi proyek yang telah saya kerjakan sejauh ini" : "Explore the projects I've worked on so far"}</span>
+                  <h2>
+                    {language === "id"
+                      ? "Pengalaman proyek sebelumnya"
+                      : "Past project experience"}
+                  </h2>
+                  <span>
+                    {language === "id"
+                      ? "Jelajahi proyek yang telah saya kerjakan sejauh ini"
+                      : "Explore the projects I've worked on so far"}
+                  </span>
                 </div>
                 <div className="card p-2 animate__animated animate__fadeInLeft animate__fast">
                   <ChartGW dataProject={dataProject} />
@@ -220,7 +231,13 @@ const Project = () => {
                           className="text-blue-500 cursor-pointer"
                           onClick={() => toggleReadMore(data.id)}
                         >
-                          {showText[data.id] ? "Show Less" : "read more"}
+                          {language === "id"
+                            ? showText[data.id]
+                              ? "Tampilkan Lebih Sedikit"
+                              : "Lihat Semua"
+                            : showText[data.id]
+                            ? "Show Less"
+                            : "See All"}
                         </span>
                       </p>
                       <p>{data.commit}</p>
@@ -229,7 +246,7 @@ const Project = () => {
                         target="_blank"
                         className="flex text-blue-500"
                       >
-                        view project{" "}
+                        {language === "id" ? 'lihat proyek' : 'view project'}
                         <LuExternalLink className="icon mt-1 mx-1" />
                       </Link>
                     </div>
